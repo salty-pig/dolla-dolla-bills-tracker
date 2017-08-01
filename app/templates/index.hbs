@@ -1,0 +1,15 @@
+{{input type="text" value=name name="user"}}
+
+{{g-autocomplete value=address on-select=(action "didUpdatePlace") on-select-error=(action "invalidUserSelection")}}
+
+<ul>
+{{#each model as |users|}}
+  <li>{{users.name}} - Lat: {{users.place.lat}}, Lng: {{users.place.lng}}</li>
+{{/each}}
+</ul>
+
+<button {{action "addUser"}}>Submit</button>
+
+
+{{g-maps name="my-map" lat=lat lng=lng zoom=zoom markers=markers}}
+
